@@ -1,0 +1,25 @@
+<view class='cover-container'>
+    <image src='{{bookData.image}}'></image>
+</view>
+<view class='book-meta'>
+    <view class='meta-info'>
+        <text class='book-title'>{{bookData.title}}</text>
+        <text class='book-subtitle' wx:if="{{bookData.subtitle}}">{{bookData.subtitle}}</text>
+        <text class='other-meta' wx:if="{{bookData.author}}">作者: {{bookData.author}}</text>
+        <text class='other-meta' wx:if="{{bookData.translator && bookData.translator.length > 0}}">译者: {{bookData.translator}}</text>
+        <text class='other-meta' wx:if="{{bookData.category}}">分类: {{bookData.category}}</text>
+        <text class='other-meta' wx:if="{{bookData.publisher}}">出版社: {{bookData.publisher}}</text>
+        <text class='other-meta' wx:if="{{bookData.pubdate}}">出版日期: {{bookData.pubdate}}</text>
+        <text class='other-meta' wx:if="{{bookData.isbn}}">ISBN: {{bookData.isbn}}</text>
+        <text class='other-meta' wx:if="{{bookData.pages}}">总页数: {{bookData.pages}}</text>
+        <text class='other-meta' wx:if="{{bookData.price}}">定价: {{bookData.price}}</text>
+        <text class='other-meta' wx:if="{{bookData.binding}}">包装: {{bookData.binding}}</text>
+    </view>
+</view>
+<view class='book-info'>
+    <view class='intro-header'><text>简介</text></view>
+    <text class='intro-content'>{{bookData.summary}}</text>
+</view>
+<loading wx:if="{{showLoading}}">
+    加载中...
+</loading>

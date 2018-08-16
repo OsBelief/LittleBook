@@ -1,0 +1,37 @@
+<!--index.wxml-->
+<view class='search_container'>
+    <input type='text' bindinput='searchInputEvent' placeholder='输入书名搜索'></input>
+    <icon type='search' bindtap='searchClickEvent' size='20'></icon>
+</view>
+<scroll-view scroll-y='true' bindscrolltolower='scrollLowerEvent' class='scroll_view'>
+    <view class='not-find' wx:if='{{!loadingMore && !isInit && totalRecord == 0}}'>
+        <view>
+            <icon class='icon' type='cancel' color='#B0AAAA' size='32'></icon>
+            <view class='text'>
+                <text>没有找到相关图书</text>
+            </view>
+        </view>
+    </view>
+    <view class='header' wx:if="{{totalRecord > 0 && !isInit}}">
+        <text>图书{{totalRecord}}本图书</text>
+    </view>
+    <view class='common-list' wx:if='{{totalRecord > 0}}'>
+        <view wx:for='{{pageData}}' wx:key='id'>
+            <view class='list-item' data-bid='{{item.isbn}}' bindtap='toDetailPage'>
+                <view class='index-list-item'>
+                    <view class='cover'>
+                        <image class='cover-img' src='{{item.image}}'></image>
+                    </view>
+                    <view class='content'>
+                        <view class='title'>{{item.title}}</view>
+                        <text class='desc'>{{item.pubdate}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="weui-loadmore" wx:if='{{loadingMore}}'>
+        <view class="weui-loading"></view>
+        <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+</scroll-view>

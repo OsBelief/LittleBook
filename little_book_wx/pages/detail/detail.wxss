@@ -1,0 +1,50 @@
+.cover-container {
+    background: #42BD56;
+    display: flex;
+    justify-content: center;
+    padding: 48rpx 0;   /*上下是40rpx, 左右是0*/
+}
+.cover-container image {
+    width: 300rpx;
+    height: 400rpx;
+    vertical-align: bottom; /*img元素底部有空白的原因及解决https://www.zhihu.com/question/21558138*/
+}
+
+.book-meta {
+    position: relative;
+    padding: 20rpx;
+    overflow: hidden;
+}
+
+.book-title {
+    display: block;
+    font-weight: bold;
+    font-size: 50rpx;
+}
+
+.book-subtitle {
+    display: block;
+    font-weight: bold;
+    font-size: 36rpx;
+}
+
+.other-meta {
+    display: block;
+    padding-top: 10rpx;
+    color: #888;
+    font-size: 30rpx
+}
+
+.book-info {
+    padding: 20rpx;
+    font-size: 40rpx;
+}
+
+.book-info .intro-header {
+    color: #888
+}
+
+.book-info .intro-content {
+    font-size: 35rpx;
+    line-height: 45rpx;
+}
